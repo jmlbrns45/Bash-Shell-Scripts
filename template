@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+#
+#Check to see if the scripts directory exists on user's home directory
+if [ -d "/home/$USER/scripts" ]; then
+	echo "The scripts folder in $USER's home directory already exists. Continuing to make template..."
+	sleep 5
+else
+	mkdir -p /home/$USER/scripts
+	sleep 5
+	echo "Your scripts folder in your home directory has been created successfully. Continuing to make a template..."
+fi
+#Creates the template for the script
+echo -e "Please enter the name of the script file that you would like to create: \c"
+read -r script
+touch /home/$USER/scripts/$script.sh
+echo '#!/bin/bash' > /home/$USER/scripts/$script.sh
+echo '#Name:' >> /home/$USER/scripts/$script.sh
+echo '#Date Created:' `date` >> /home/$USER/scripts/$script.sh
+echo '#Date Modified:' >> /home/$USER/scripts/$script.sh
+echo '#Purpose:' >> /home/$USER/scripts/$script.sh
+echo '#Version:' >> /home/$USER/scripts/$script.sh
+echo '#Created By:' >> /home/$USER/scripts/$script.sh
+echo '#Start:' >> /home/$USER/scripts/$script.sh
+echo '#End:' >> /home/$USER/scripts/$script.sh
+sleep 5
+
+echo "Your template has been created. Please check the scripts folder in your home directory."
+
+exit
